@@ -15,7 +15,7 @@
         font-family:'Open Sans', sans-serif;
       }
     </style>
-
+    <script src="https://cdn.jsdelivr.net/npm/before-after-slider@1.0.0/dist/slider.bundle.js"></script>
   </head>
 
   <!-- cover -->
@@ -37,24 +37,19 @@
             <p> <sup>1</sup>State Key Lab of CAD & CG, Zhejiang University &nbsp;&nbsp; 
                 <sup>2</sup>SenseTime Research
                 <br>
-                <sup>*</sup> denotes equal contribution --> -->
-            </p>
-            <p> <a class="btn btn-secondary btn-lg" href="" role="button">Paper</a> 
-                <a class="btn btn-secondary btn-lg" href="" role="button">Code</a> 
-                <a class="btn btn-secondary btn-lg" href="" role="button">Data</a> </p>
+                <sup>*</sup> denotes equal contribution -->
 
             <div class="row justify-content-center">
               <div class="column">
-                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2104.00681.pdf" role="button"  target="_blank">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="http://vds.sogang.ac.kr/" role="button" target="_blank">
                     <i class="fa fa-file"></i> Paper</a> </p>
               </div>
               <div class="column">
-                  <p class="mb-5"><a class="btn btn-large btn-light" id="code_soon" href="https://github.com/zju3dv/NeuralRecon" role="button" 
-                    target="_blank" disabled=1>
+                  <p class="mb-5"><a class="btn btn-large btn-light" id="code_soon" href="" role="button" target="_blank" disabled="disabled">
                 <i class="fa fa-github-alt"></i> Code </a> </p>
               </div>
               <div class="column">
-                  <p class="mb-5"><a class="btn btn-large btn-light" href="files/NeuralRecon-suppmat.pdf" role="button"  target="_blank">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="files/supp.pdf" role="button"  target="_blank">
                     <i class="fa fa-file"></i> Supplementary</a> </p>
               </div>
             </div>
@@ -71,18 +66,23 @@
       <div class="row">
         <div class="col-12 text-center">
           <h3>Abstract</h3>
-            <hr style="margin-top:0px">
             <!-- <h6 style="color:#8899a5"> NeuralRecon reconstructs 3D scene geometry from a monocular video with known camera poses in <b style="color:#e94a00">real-time</b>🔥.</h6> -->
 <!--             <video poster="images/header-vid-poster.png" width="70%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" id="header_vid"> -->
             <!-- <video width="70%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" id="header_vid">
                   <source src="videos/web-scene2.m4v" type="video/mp4">
             </video> -->
-            <div><b style="color:#fd5638; font-size:large" id="demo-warning"></b>
+            <!--div><b style="color:#fd5638; font-size:large" id="demo-warning"></b>
             <br>
-            </div>
-              <!-- <br><br> -->
+            </div-->
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="images/Figure_1_4.png" alt="overview">
+            <hr style="margin-top:0px">
           <p class="text-justify">
-              We present MosaicMVS, a novel learning-based depth estimation framework for a mosaic-based omnidirectional multi-view stereo (MVS) camera setup. It uses a regular field of view (FOV) MVS network for an omnidirectional imaging setup with explicit consideration of hypothetical voxel-wise FOV overlaps. The resulting depth predictions are accurate and agree on the omnidirectional multi-view geometry. Unlike existing MVS setups, MosaicMVS camera setup can be easily applied to omnidirectional indoor scenes without having to account for constraints such as intricate epipolar constraints and the distortion of omnidirectional cameras. We validate the effectiveness of our framework on a new challenging indoor dataset in terms of depth estimation, reconstruction, and view synthesis. Our framework outperforms the state-of-the-art methods in a large margin in all test scenes.
+              We present MosaicMVS, a novel learning-based depth estimation framework for a mosaic-based omnidirectional multi-view stereo (MVS) camera setup. 
+              It uses a regular field of view (FOV) MVS network for an omnidirectional imaging setup with explicit consideration of hypothetical voxel-wise FOV overlaps. 
+              The resulting depth predictions are accurate and agree on the omnidirectional multi-view geometry. 
+              Unlike existing MVS setups, MosaicMVS camera setup can be easily applied to omnidirectional indoor scenes without having to account for constraints such as intricate epipolar constraints and the distortion of omnidirectional cameras. 
+              We validate the effectiveness of our framework on a new challenging indoor dataset in terms of depth estimation, reconstruction, and view synthesis. Our framework outperforms the state-of-the-art methods in a large margin in all test scenes.
           </p>
         </div>
       </div>
@@ -90,24 +90,118 @@
   </section>
   <br>
 
-  <!-- reconstruction showcase -->
+
+  <!-- Depth estimation showcases -->
   <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>Reconstruction showcase</h3>
+            <h3>Depth estimation showcases</h3>
             <hr style="margin-top:0px">
-            <div class="embed-responsive embed-responsive-16by9">
-
-                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/playlists/embed?collection=5a49cab0570e4d9fb610978a640fe080&autostart=" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            </div>
-            <br>
-            <p> Zoom in by scrolling. You can toggle the “Single Sided” option in Model Inspector (pressing I key) to enable back-face culling (see through walls). Select “Matcap” to inspect the geometry without textures.</p>
+            <div id="Slider3"></div>
+              <script>
+              new SliderBar({
+                el: '#Slider3',            // The container, required
+                beforeImg: 'depths/159_rgb.png',  // before image, required
+                afterImg: 'depths/159_ours.png',    // after image, required
+                width: "100%",               // slide-wrap width, default 100%
+                height: "400px",            // slide-wrap height, default image-height
+                line: true,                 // Dividing line, default true
+                lineColor: "rgba(0,0,0,0.5)" // Dividing line color, default rgba(0,0,0,0.5)
+              });
+              </script>
+            <!--hr style="margin-top:0px"-->
+            <hr style="margin-top:10px">
+            <div id="Slider4"></div>
+            <script>
+            new SliderBar({
+              el: '#Slider4',            // The container, required
+              beforeImg: 'depths/238_rgb.png',  // before image, required
+              afterImg: 'depths/238_ours.png',    // after image, required
+              width: "100%",               // slide-wrap width, default 100%
+              height: "400px",            // slide-wrap height, default image-height
+              line: true,                 // Dividing line, default true
+              lineColor: "rgba(0,0,0,0.5)" // Dividing line color, default rgba(0,0,0,0.5)
+            });
+            </script>
+          <hr style="margin-top:10px">
+            <p class="text-justify">
+              From posed RGBs with divergent camera setup (left), our framework estimates accurate depth maps (right).
+            </p>
         </div>
       </div>
     </div>
   </section>
   <br>
+
+
+  <!-- Depth map comparison -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Depth map comparison</h3>
+            <hr style="margin-top:0px">
+            <div id="Slider1"></div>
+              <script>
+              new SliderBar({
+                el: '#Slider1',            // The container, required
+                beforeImg: 'depths/159_comp.png',  // before image, required
+                afterImg: 'depths/159_ours.png',    // after image, required
+                width: "100%",               // slide-wrap width, default 100%
+                height: "400px",            // slide-wrap height, default image-height
+                line: true,                 // Dividing line, default true
+                lineColor: "rgba(0,0,0,0.5)" // Dividing line color, default rgba(0,0,0,0.5)
+              });
+              </script>
+            <!--hr style="margin-top:0px"-->
+            <hr style="margin-top:10px">
+            <div id="Slider2"></div>
+            <script>
+            new SliderBar({
+              el: '#Slider2',            // The container, required
+              beforeImg: 'depths/238_comp.png',  // before image, required
+              afterImg: 'depths/238_ours.png',    // after image, required
+              width: "100%",               // slide-wrap width, default 100%
+              height: "400px",            // slide-wrap height, default image-height
+              line: true,                 // Dividing line, default true
+              lineColor: "rgba(0,0,0,0.5)" // Dividing line color, default rgba(0,0,0,0.5)
+            });
+            </script>
+          <hr style="margin-top:10px">
+            <p class="text-justify">
+              Comparison of estimated depth maps. 
+              Comparing the baseline result (left) and ours (right), depth maps produced by our pipeline clearly show fewer artifacts.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+
+  <!-- reconstruction showcases -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Reconstruction showcases</h3>
+            <hr style="margin-top:0px">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://sketchfab.com/playlists/embed?collection=5a49cab0570e4d9fb610978a640fe080&autostart=" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
+            <br>
+            <p class="text-justify"> 
+              Poisson reconstructions with the depth maps produced via our pipeline. 
+              Zoom in by scrolling. 
+              You can toggle the “Single Sided” option in Model Inspector (pressing I key) to enable back-face culling (see through walls). 
+              Select “Matcap” to inspect the geometry without textures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
 
 
   <!-- real-time incremental reconstruction -->
@@ -192,11 +286,8 @@
   </section>
   <br>
 
-
-
-
   <!-- overview video -->
-  <section>
+  <!--section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
@@ -211,32 +302,46 @@
   </section>
   <br>
 
-
-  <!-- Pipeline overview -->
+  <-- Pipeline overview -->
   <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
             <h3>Pipeline overview</h3>
             <hr style="margin-top:0px">
-            <img class="img-fluid" src="images/neucon-arch.png" alt="NeuralRecon Architechture">
+            <img class="img-fluid" src="images/Figure_2_6.png" alt="MosaicMVS Architechture">
             <hr style="margin-top:0px">
             <p class="text-justify">
-              NeuralRecon predicts TSDF with a three-level coarse-to-fine approach that gradually increases the density of sparse voxels.
-              Key-frame images in the local fragment are first passed through the image backbone to extract the multi-level features. 
-              These image features are later back-projected along each ray and aggregated into a 3D feature volume $\mathbf{F}_t^l$, where $l$ represents the level index. 
-              At the first level ($l=1$), a dense TSDF volume $\mathbf{S}_t^{1}$ is predicted.
-              At the second and third levels, the upsampled $\mathbf{S}_t^{l-1}$ from the last level is concatenated with $\mathbf{F}_t^l$ 
-              and used as the input for the GRU Fusion and MLP modules.
-              A feature volume defined in the world frame is maintained at each level as the global hidden state of the GRU.
-              At the last level, the output $\mathbf{S}_t^l$ is used to replace corresponding voxels in the global TSDF volume $\mathbf{S}_t^{g}$, 
-              yielding the final reconstruction at time $t$. 
+              Overview of the proposed MosaicMVS. 
+              For every target-source pair, the estimated camera pose and depth values, and source view indices are pre-processed and they were used to infer depth maps. 
+              The estimated depth and confidence map were obtained by constructing valid view cost volume regularization in 3D convolution and they were filtered using the pre-processed data without depth values.
             </p>
         </div>
       </div>
     </div>
   </section>
   <br>
+
+  <!-- valid view cost volume overview -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Valid view cost volume overview</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="images/Figure_6_6.png" alt="valid view cost volume">
+            <hr style="margin-top:0px">
+            <p class="text-justify">
+              The construction process of the valid view cost volume ${{C}}_{V}$. 
+              From ${O}_{sum}$, we adaptively change the denominator ${O}_{filled}$ of the cost metric per hypothetical voxel based on each warped feature volume $\tilde{{F}}_i(v)$. 
+              Also, we minimize the effect of zero overlapping hypothetical voxels in ${O}_{filled}$.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
 
   <!-- Comparison with state-of-the-art methods -->
   <!-- <section>
@@ -275,7 +380,7 @@
         </div>
       </div>
     </section> -->
-    <br>   -->
+    <br>   
 
   <!-- Comparison with depth-based methods -->
   <!-- <section>
@@ -312,45 +417,16 @@
           <h3>Citation</h3>
           <hr style="margin-top:0px">
               <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
-<code>@article{sun2021neucon,
-  title={{NeuralRecon}: Real-Time Coherent {3D} Reconstruction from Monocular Video},
-  author={Sun, Jiaming and Xie, Yiming and Chen, Linghao and Zhou, Xiaowei and Bao, Hujun},
-  journal={CVPR},
-  year={2021}
+<code>@article{shin2022mosaic,
+  title={{MosaicMVS}: : Mosaic-based Omnidirectional Multi-view Stereo for Indoor Scenes},
+  author={Min-jung Shin*, Woojune Park*, Minji Cho*, Kyeongbo Kong*, Hosung Son, Joonsoo Kim, Kug-jin Yun, Gwangsoon Lee, and Suk-Ju Kang},
+  journal={Arxiv},
+  year={2022}
 }</code></pre>
           <hr>
       </div>
     </div>
   </div>
-
-  <!-- ack -->
-  <div class="container">
-    <div class="row ">
-      <div class="col-12">
-          <h3>Acknowledgements</h3>
-          <hr style="margin-top:0px">
-          <p class="text-justify">
-            We would like to specially thank Reviewer 3 for the insightful and constructive comments.
-            We would like to thank Sida Peng , Siyu Zhang and Qi Fang for the proof-reading.
-          </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- rec -->
-  <div class="container">
-    <div class="row ">
-      <div class="col-12">
-          <h3>Recommendations to other works from our group</h3>
-          <hr style="margin-top:0px">
-          <p class="text-justify">
-            Welcome to checkout our work on Transformer-based feature matching (<a href="http://zju3dv.github.io/loftr">LoFTR</a>) and human reconstruction (<a href="http://zju3dv.github.io/neuralbody">NeuralBody</a> and <a href="http://zju3dv.github.io/Mirrored-Human">Mirrored-Human</a>) in CVPR 2021.
-          </p>
-      </div>
-    </div>
-  </div>
-
-
 
   <footer class="text-center" style="margin-bottom:10px; font-size: medium;">
       <hr>
@@ -402,7 +478,7 @@
     MathJax = {
       tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>  
 </body>
 </html>
